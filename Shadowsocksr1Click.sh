@@ -13,7 +13,7 @@ install_ssr(){
 	stty erase '^H' && read -p " speed_limit:" ssrspeed
 	[[ -z ${ssrspeed} ]] && ssrspeed=0
 	clear
-  	git clone -b akkariiin/master https://github.com/ggcs/shadowsocksr.git && cd shadowsocksr && chmod +x setup_cymysql.sh && chmod +x ./initcfg.sh && ./setup_cymysql.sh && ./initcfg.sh && chmod +x Daemon.sh
+  	git clone -b akkariiin/dev https://github.com/ggcs/shadowsocksr.git && cd shadowsocksr && chmod +x setup_cymysql.sh && chmod +x ./initcfg.sh && ./setup_cymysql.sh && ./initcfg.sh && chmod +x Daemon.sh
 	rm -rf Shadowsocksr1Click.sh
 	echo 'ssr安装完成'
 	
