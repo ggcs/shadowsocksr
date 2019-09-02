@@ -13,7 +13,7 @@ install_ssr(){
 	stty erase '^H' && read -p " speed_limit:" ssrspeed
 	[[ -z ${ssrspeed} ]] && ssrspeed=0
 	clear
-  	git clone -b akkariiin/dev https://github.com/ggcs/shadowsocksr.git && cd shadowsocksr && chmod +x setup_cymysql.sh && chmod +x ./initcfg.sh && ./setup_cymysql.sh && ./initcfg.sh && chmod +x Daemon.sh
+  	git clone -b akkariiin/dev https://github.com/ggcs/shadowsocksr.git && cd shadowsocksr && chmod +x setup_cymysql.sh && chmod +x ./initcfg.sh && ./setup_cymysql.sh && ./initcfg.sh
 	rm -rf Shadowsocksr1Click.sh
 	echo 'ssr安装完成'
 	
@@ -31,10 +31,11 @@ install_ssr(){
 	
 	read -e -p "是否添加守护？[Y/n]" ssr_Daemon
 	if [[ ${ssr_Daemon} != [Nn] ]];then
+		chmod +x Daemon.sh
 		if [ ! -d "//var/spool/cron/crontabs/" ];then
-			echo "*/1 * * * * bash /root/shadowsocksr/Daemon.sh" >> /var/spool/cron/root
+			echo "*/1 * * * * /root/shadowsocksr/Daemon.sh" >> /var/spool/cron/root
 		else
-			echo "*/1 * * * * bash /root/shadowsocksr/Daemon.sh" >> /var/spool/cron/crontabs/root
+			echo "*/1 * * * * /root/shadowsocksr/Daemon.sh" >> /var/spool/cron/crontabs/root
 		fi
 		echo 'ssr已被守护'
 	fi
