@@ -33,9 +33,9 @@ install_ssr(){
 	if [[ ${ssr_Daemon} != [Nn] ]];then
 		chmod +x Daemon.sh
 		if [ ! -d "//var/spool/cron/crontabs/" ];then
-			echo "*/1 * * * *bash /root/shadowsocksr/Daemon.sh" >> /var/spool/cron/root
+			echo "*/1 * * * * /root/shadowsocksr/Daemon.sh" >> /var/spool/cron/root
 		else
-			echo "*/1 * * * *bash /root/shadowsocksr/Daemon.sh" >> /var/spool/cron/crontabs/root
+			echo "*/1 * * * * /root/shadowsocksr/Daemon.sh" >> /var/spool/cron/crontabs/root
 		fi
 		echo 'ssr已被守护'
 	fi
