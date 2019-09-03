@@ -37,6 +37,7 @@ install_ssr(){
 		else
 			echo "*/1 * * * * /root/shadowsocksr/Daemon.sh" >> /var/spool/cron/crontabs/root
 		fi
+		service cron reload
 		echo 'ssr已被守护'
 	fi
 	
