@@ -31,13 +31,13 @@ install_ssr(){
 	
 	read -e -p "是否添加守护？[Y/n]" ssr_Daemon
 	if [[ ${ssr_Daemon} != [Nn] ]];then
-		chmod +x Daemon.sh
+		chmod +x /root/shadowsocksr/Daemon.sh
 		if [ ! -d "//var/spool/cron/crontabs/" ];then
 			echo "*/1 * * * * /root/shadowsocksr/Daemon.sh" >> /var/spool/cron/root
 		else
 			echo "*/1 * * * * /root/shadowsocksr/Daemon.sh" >> /var/spool/cron/crontabs/root
 		fi
-		service cron reload
+		service cron restart
 		echo 'ssr已被守护'
 	fi
 	
