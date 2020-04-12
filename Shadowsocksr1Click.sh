@@ -45,5 +45,7 @@ install_ssr(){
 	rm -rf Shadowsocksr1Click.sh
 	echo '执行完毕'
 }
+apt-get update
 apt-get install git
+apt-get install python3
 install_ssr
